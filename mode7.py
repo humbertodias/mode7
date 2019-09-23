@@ -72,7 +72,7 @@ class Mode7(object):
     def render(self):
         image = rotozoom(self.original, self._rotation, self._zoom)
         w2, h2 = image.get_size()
-        image = smoothscale(image, (w2, int(h2*self._perspective)))
+        image = smoothscale(image, (w2, int(h2 * self._perspective)))
         return image
 
 
@@ -91,7 +91,7 @@ class SimpleTest(object):
         self.z_velocity = 0
 
     def draw(self, surface):
-        surface.fill((0,0,0))
+        surface.fill((0, 0, 0))
         rect = self.renderer.image.get_rect()
         rect.center = surface.get_rect().center
         surface.blit(self.renderer.image, rect)
@@ -161,13 +161,14 @@ class SimpleTest(object):
 
         return self.exit_status
 
+
 if __name__ == '__main__':
     pygame.init()
     pygame.font.init()
     screen = init_screen(600, 600)
     pygame.display.set_caption('Mode7')
 
-    filename = 'pygame_logo_med.png'
+    filename = 'MushroomCup1.png'
 
     try:
         SimpleTest(filename).run()
